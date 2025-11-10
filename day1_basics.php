@@ -27,4 +27,5 @@ echo "合計: {$sum}\n";
 for ($i = 0; $i < count($prices); $i++) {
   echo "prices[{$i}] = {$prices[$i]}\n";
 }
+
 ?>
