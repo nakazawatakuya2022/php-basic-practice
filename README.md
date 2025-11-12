@@ -41,7 +41,7 @@ function で処理をまとめて使い回せる
 | 2 | MySQL接続とCRUD | 🔄 進行中 |
 | 3 | DockerでPHP実行 | ⏳ 次回予定 |
 
-## DAY2
+## DAY2（学校環境）
 
 1.環境チェック
 php -v
@@ -83,4 +83,37 @@ mysql -V
 systemctl status httpd
 systemctl status mysqld
 
+9.トラブル対応
 
+http://192.168.0.3/web2511/php-basic-practice/day2_crud/index.php DB接続エラー: SQLSTATE[HY000] [2002] No such file or directory
+
+db.php
+mysql:host=192.168.0.4;port=3306;dbname=app;charset=utf8mb4
+に変更で解決
+
+学校環境のgitにプロキシの設定を入れてpush pull可能にした。
+現在のgit config --global --list
+
+$ git config --global --list
+user.name=Takuya Nakazawa
+user.email=nakazawata98@gmail.com
+core.quotepath=false
+i18n.commitencoding=utf-8
+i18n.logoutputencoding=utf-8
+http.version=HTTP/1.1
+http.sslbackend=schannel
+http.proxy=http://192.168.10.1:8080
+credential.helper=manager
+https.proxy=http://192.168.10.1:8080
+
+学校環境のApacheにgitがインストール出来ないので解決策として
+tar.gz デプロイを採用
+※VS CodeのSSHも使用可能にした
+
+cd ~/public_html
+にデプロイスクリプトを作成して実行権限の付与を行った
+deploy.sh
+chmod +x ~/deploy.sh
+
+デプロイ実行
+~/deploy.sh
