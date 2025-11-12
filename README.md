@@ -1,119 +1,43 @@
-# PHP Basic Practice
+# 🧱 PHP Basic Practice
 
-このリポジトリは、PHP の基礎文法と CRUD 学習のための練習用プロジェクトです。
+このリポジトリは、**3か月 × 1周チャレンジ（v1.0）** における  
+PHP学習および CRUD 開発の練習用プロジェクトです。
 
-## 📘 Day1：基本文法練習
-
-### 内容
-- 変数の使い方 (`$name`, `$price`)
-- 条件分岐 (`if`, `elseif`, `else`)
-- 配列 (`foreach`)
-- 関数 (`function`)
-
-### 実行方法
-1. ターミナルでフォルダを開く  
-   ```bash
-   #cd Z:/projects/php-basic-practice/day1_basic
-
-2. 実行
-#php day1_basic.php
-
-学んだこと
-
-文字列展開に {} を使うと変数を埋め込める
-
-foreach は配列の全要素を順に処理できる
-
-function で処理をまとめて使い回せる
-
+学校（LAMP）・自宅（Docker）双方で動作する構成を採用しています。
 
 ---
 
-## 💡 補足：複数Dayが進んだら
-次のように各Dayの進捗をまとめていきます👇
+## 📘 学習進捗
 
-```markdown
-## 📆 進捗ログ
+| Day | 内容 | 環境 | 状況 |
+|-----|------|------|------|
+| 1 | PHP基本文法（変数・条件分岐・配列・関数） | LAMP | ✅ 完了 |
+| 2 | PHP × MariaDB CRUD（一覧＋追加） | LAMP | ✅ 完了 |
+| 2R | foreach + function 復習 | LAMP | ✅ 完了 |
+| 3 | CRUD関数化（Docker移行） | Docker | 🔄 進行中 |
+| 4 | Docker構成整理（Apache + MySQL） | Docker | ⏳ 準備中 |
 
-| Day | 内容 | 状況 |
-|-----|------|------|
-| 1 | PHP基本文法 | ✅ 完了 |
-| 2 | MySQL接続とCRUD | 🔄 進行中 |
-| 3 | DockerでPHP実行 | ⏳ 次回予定 |
+---
 
-## DAY2（学校環境）
+## ⚙️ 技術スタック
 
-1.環境チェック
-php -v
-mysql -V
-systemctl status httpd
-systemctl status mysqld
+| カテゴリ | 使用技術 | 補足 |
+|-----------|-----------|------|
+| 言語 | PHP 8.x | LAMP & Docker 両対応 |
+| Webサーバ | Apache 2.4 | 学校環境（Red Hat） |
+| DB | MariaDB 10.x | localhost / port 3306 |
+| バージョン管理 | Git + GitHub | HTTPS プロキシ対応済み |
+| デプロイ | tar.gz デプロイ | `deploy.sh` によるリリース |
+| ナレッジ管理 | GitHub Wiki | GROWIへ将来移行予定 |
 
-2.プロジェクトの準備
-cd /z/projects/php-basic-proctice
-mkdir -p day2_crud
-cd day2_crud
+---
 
-3.ファイル作成
-db.php
-index.php
-add.php
+## 🧩 環境別ディレクトリ構成
 
-4.MariaDBにデータベース作成
-
-5.動作確認
-http://192.168.0.3/web2511/php-basic-practice/day2_crud/index.php
-
-6.GitHubへ記録
-
-git status
-git add .
-git commit -m "feat: Day2 PHP CRUD (一覧＋追加)"
-git push -u origin feat/day2-crud
-
-7.mainブランチに統合するときは
-git switch main
-git merge --no-ff feat/day2-crud -m "merge: Day2 CRUD 完了"
-git push origin main
-
-8.明日のための環境確認
-git log --oneline --graph --decorate --all | head
-php -v
-mysql -V
-systemctl status httpd
-systemctl status mysqld
-
-9.トラブル対応
-
-http://192.168.0.3/web2511/php-basic-practice/day2_crud/index.php DB接続エラー: SQLSTATE[HY000] [2002] No such file or directory
-
-db.php
-mysql:host=192.168.0.4;port=3306;dbname=app;charset=utf8mb4
-に変更で解決
-
-学校環境のgitにプロキシの設定を入れてpush pull可能にした。
-現在のgit config --global --list
-
-$ git config --global --list
-user.name=Takuya Nakazawa
-user.email=nakazawata98@gmail.com
-core.quotepath=false
-i18n.commitencoding=utf-8
-i18n.logoutputencoding=utf-8
-http.version=HTTP/1.1
-http.sslbackend=schannel
-http.proxy=http://192.168.10.1:8080
-credential.helper=manager
-https.proxy=http://192.168.10.1:8080
-
-学校環境のApacheにgitがインストール出来ないので解決策として
-tar.gz デプロイを採用
-※VS CodeのSSHも使用可能にした
-
-cd ~/public_html
-にデプロイスクリプトを作成して実行権限の付与を行った
-deploy.sh
-chmod +x ~/deploy.sh
-
-デプロイ実行
-~/deploy.sh
+php-basic-practice/
+├─ day1_basic/ # PHP基本文法
+├─ day2_crud/ # DB接続＋CRUD処理
+├─ day2_review/ # foreach＋関数復習
+├─ day3_crud/ # 関数化（Docker移行予定）
+├─ README.md # ← 本ファイル
+└─ deploy.sh # デプロイスクリプト
