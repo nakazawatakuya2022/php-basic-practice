@@ -1,0 +1,18 @@
+# エディタ系
+.vscode/
+.idea/
+
+# 依存物（将来のLaravel/Node用）
+vendor/
+node_modules/
+
+# 環境情報
+.env
+.env.local
+
+# ログ
+*.log
+
+# OSごみ
+.DS_Store
+Thumbs.db
