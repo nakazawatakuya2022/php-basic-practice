@@ -21,5 +21,11 @@ foreach ($user as $key => $val) {
   echo "$key : $val <br>";
 }
 
+http_response_code(404);
+echo "Not found test";
+
+header("Content-Type: application/json");
+echo json_encode(["name" => "Takuya", "age" => 22]);
+
 ?>
 
